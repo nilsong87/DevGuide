@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevGuide - Aprenda JavaScript, Python e C++</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Prism JS (Syntax Highlighting) -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism-okaidia.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/line-numbers/prism-line-numbers.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/themes/dark.css" rel="stylesheet" id="theme-style">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-code me-2"></i>DevGuide
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#home"><i class="fas fa-home me-1"></i> Início</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="languagesDropdown" role="button" data-bs-toggle="dropdown">
+                            <i class="fas fa-laptop-code me-1"></i> Linguagens
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="javascript.html"><i class="fab fa-js-square me-2"></i>JavaScript</a></li>
+                            <li><a class="dropdown-item" href="python.html"><i class="fab fa-python me-2"></i>Python</a></li>
+                            <li><a class="dropdown-item" href="cpp.html"><i class="fas fa-plus-circle me-2"></i>C++</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="tutorials.html"><i class="fas fa-graduation-cap me-1"></i> Tutoriais</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="exercises.html"><i class="fas fa-dumbbell me-1"></i> Exercícios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="resources.html"><i class="fas fa-book me-1"></i> Recursos</a>
+                    </li>
+                </ul>
+                <div class="d-flex">
+                    <button id="theme-toggle" class="btn btn-outline-light me-2">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Pesquisar...">
+                        <button class="btn btn-light" type="button">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero-section" id="home">
+        <div class="container text-center py-5">
+            <h1 class="display-3 fw-bold mb-4">Aprenda Programação de Forma Completa</h1>
+            <p class="lead mb-5">Domine JavaScript, Python e C++ com tutoriais interativos, exemplos práticos e exercícios desafiadores.</p>
+            <div class="d-flex justify-content-center gap-3">
+                <a href="javascript.html" class="btn btn-primary btn-lg px-4">
+                    <i class="fab fa-js me-2"></i>JavaScript
+                </a>
+                <a href="python.html" class="btn btn-success btn-lg px-4">
+                    <i class="fab fa-python me-2"></i>Python
+                </a>
+                <a href="cpp.html" class="btn btn-info btn-lg px-4">
+                    <i class="fas fa-plus-circle me-2"></i>C++
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container my-5">
+        <!-- Language Tabs -->
+        <div class="card mb-5">
+            <div class="card-header">
+                <ul class="nav nav-tabs card-header-tabs" id="langTabs" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="js-tab" data-bs-toggle="tab" data-bs-target="#js-content" type="button">
+                            <i class="fab fa-js me-1"></i> JavaScript
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="python-tab" data-bs-toggle="tab" data-bs-target="#python-content" type="button">
+                            <i class="fab fa-python me-1"></i> Python
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="cpp-tab" data-bs-toggle="tab" data-bs-target="#cpp-content" type="button">
+                            <i class="fas fa-plus-circle me-1"></i> C++
+                        </button>
+                    </li>
+                </ul>
+            </div>
+            <div class="card-body">
+                <div class="tab-content" id="langTabsContent">
+                    <!-- JavaScript Content -->
+                    <div class="tab-pane fade show active" id="js-content" role="tabpanel">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="list-group mb-4">
+                                    <a href="#js-basics" class="list-group-item list-group-item-action active">
+                                        <i class="fas fa-baby me-2"></i> Básicos
+                                    </a>
+                                    <a href="#js-functions" class="list-group-item list-group-item-action">
+                                        <i class="fas fa-cubes me-2"></i> Funções
+                                    </a>
+                                    <a href="#js-dom" class="list-group-item list-group-item-action">
+                                        <i class="fas fa-window-maximize me-2"></i> DOM
+                                    </a>
+                                    <a href="#js-async" class="list-group-item list-group-item-action">
+                                        <i class="fas fa-clock me-2"></i> Async/Await
+                                    </a>
+                                    <a href="#js-frameworks" class="list-group-item list-group-item-action">
+                                        <i class="fas fa-shapes me-2"></i> Frameworks
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-8">
+                                <section id="js-basics">
+                                    <h2 class="mb-4"><i class="fas fa-baby me-2"></i> JavaScript Básico</h2>
+                                    <p>JavaScript é uma linguagem de programação interpretada estruturada, de script em alto nível com tipagem dinâmica fraca e multiparadigma.</p>
+                                    
+                                    <h4 class="mt-4">Variáveis</h4>
+                                    <pre class="line-numbers"><code class="language-javascript">
+// Declaração de variáveis
+let nome = "João";
+const idade = 30;
+var profissao = "Desenvolvedor";
+
+console.log(nome); // João
+console.log(idade); // 30
+                                    </code></pre>
+                                    
+                                    <h4 class="mt-4">Estruturas de Controle</h4>
+                                    <pre class="line-numbers"><code class="language-javascript">
+// Condicional if-else
+let temperatura = 25;
+
+if (temperatura > 30) {
+    console.log("Está muito quente!");
+} else if (temperatura > 20) {
+    console.log("Temperatura agradável");
+} else {
+    console.log("Está frio");
+}
+
+// Loop for
+for (let i = 0; i < 5; i++) {
+    console.log("Iteração: " + i);
+}
+                                    </code></pre>
+                                    
+                                    <div class="alert alert-info mt-4">
+                                        <i class="fas fa-lightbulb me-2"></i> Dica: Use <code>let</code> e <code>const</code> em vez de <code>var</code> para declarar variáveis, pois eles têm escopo de bloco.
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Python Content -->
+                    <div class="tab-pane fade" id="python-content" role="tabpanel">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="list-group mb-4">
+                                    <a href="#python-basics" class="list-group-item list-group-item-action active">
+                                        <i class="fas fa-baby me-2"></i> Básicos
+                                    </a>
+                                    <a href="#python-functions" class="list-group-item list-group-item-action">
+                                        <i class="fas fa-cubes me-2"></i> Funções
+                                    </a>
+                                    <a href="#python-oop" class="list-group-item list-group-item-action">
+                                        <i class="fas fa-object-group me-2"></i> OOP
+                                    </a>
+                                    <a href="#python-modules" class="list-group-item list-group-item-action">
+                                        <i class="fas fa-box-open me-2"></i> Módulos
+                                    </a>
+                                    <a href="#python-libraries" class="list-group-item list-group-item-action">
+                                        <i class="fas fa-book-open me-2"></i> Bibliotecas
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-8">
+                                <section id="python-basics">
+                                    <h2 class="mb-4"><i class="fas fa-baby me-2"></i> Python Básico</h2>
+                                    <p>Python é uma linguagem de programação de alto nível, interpretada, de script, imperativa, orientada a objetos, funcional, de tipagem dinâmica e forte.</p>
+                                    
+                                    <h4 class="mt-4">Variáveis e Tipos</h4>
+                                    <pre class="line-numbers"><code class="language-python">
+# Declaração de variáveis
+nome = "Maria"
+idade = 25
+altura = 1.68
+is_programmer = True
+
+print(nome)  # Maria
+print(type(idade))  # &lt;class 'int'&gt;
+                                    </code></pre>
+                                    
+                                    <h4 class="mt-4">Estruturas de Controle</h4>
+                                    <pre class="line-numbers"><code class="language-python">
+# Condicional if-elif-else
+temperatura = 22
+
+if temperatura > 30:
+    print("Está muito quente!")
+elif temperatura > 20:
+    print("Temperatura agradável")
+else:
+    print("Está frio")
+
+# Loop for
+for i in range(5):
+    print(f"Iteração: {i}")
+                                    </code></pre>
+                                    
+                                    <div class="alert alert-success mt-4">
+                                        <i class="fas fa-lightbulb me-2"></i> Dica: Python usa indentação para definir blocos de código, ao invés de chaves como em outras linguagens.
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- C++ Content -->
+                    <div class="tab-pane fade" id="cpp-content" role="tabpanel">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="list-group mb-4">
+                                    <a href="#cpp-basics" class="list-group-item list-group-item-action active">
+                                        <i class="fas fa-baby me-2"></i> Básicos
+                                    </a>
+                                    <a href="#cpp-functions" class="list-group-item list-group-item-action">
+                                        <i class="fas fa-cubes me-2"></i> Funções
+                                    </a>
+                                    <a href="#cpp-oop" class="list-group-item list-group-item-action">
+                                        <i class="fas fa-object-group me-2"></i> OOP
+                                    </a>
+                                    <a href="#cpp-pointers" class="list-group-item list-group-item-action">
+                                        <i class="fas fa-memory me-2"></i> Ponteiros
+                                    </a>
+                                    <a href="#cpp-stl" class="list-group-item list-group-item-action">
+                                        <i class="fas fa-boxes me-2"></i> STL
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-8">
+                                <section id="cpp-basics">
+                                    <h2 class="mb-4"><i class="fas fa-baby me-2"></i> C++ Básico</h2>
+                                    <p>C++ é uma linguagem de programação compilada multi-paradigma (seu suporte inclui linguagem imperativa, orientada a objetos e genérica) e de uso geral.</p>
+                                    
+                                    <h4 class="mt-4">Variáveis e Tipos</h4>
+                                    <pre class="line-numbers"><code class="language-cpp">
+// Declaração de variáveis
+#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+    string nome = "Carlos";
+    int idade = 35;
+    double altura = 1.75;
+    bool is_programmer = true;
+    
+    cout << nome << endl;  // Carlos
+    return 0;
+}
+                                    </code></pre>
+                                    
+                                    <h4 class="mt-4">Estruturas de Controle</h4>
+                                    <pre class="line-numbers"><code class="language-cpp">
+// Condicional if-else
+int temperatura = 18;
+
+if (temperatura > 30) {
+    cout << "Está muito quente!" << endl;
+} else if (temperatura > 20) {
+    cout << "Temperatura agradável" << endl;
+} else {
+    cout << "Está frio" << endl;
+}
+
+// Loop for
+for (int i = 0; i < 5; i++) {
+    cout << "Iteração: " << i << endl;
+}
+                                    </code></pre>
+                                    
+                                    <div class="alert alert-info mt-4">
+                                        <i class="fas fa-lightbulb me-2"></i> Dica: C++ é uma linguagem fortemente tipada e compilada, o que significa que os erros são detectados em tempo de compilação.
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Interactive Code Editor -->
+        <section class="mb-5">
+            <div class="card">
+                <div class="card-header bg-dark text-white">
+                    <i class="fas fa-code me-2"></i> Editor de Código Interativo
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <select id="language-select" class="form-select mb-3">
+                                <option value="javascript">JavaScript</option>
+                                <option value="python">Python</option>
+                                <option value="cpp">C++</option>
+                            </select>
+                            <div id="code-editor" class="border rounded" style="height: 300px;"></div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="output-container border rounded bg-dark text-light p-3" style="height: 300px; overflow-y: auto;">
+                                <h5>Saída:</h5>
+                                <div id="code-output" class="mt-2"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <button id="run-code" class="btn btn-primary mt-3">
+                        <i class="fas fa-play me-2"></i> Executar Código
+                    </button>
+                    <button id="reset-code" class="btn btn-outline-secondary mt-3 ms-2">
+                        <i class="fas fa-redo me-2"></i> Reiniciar
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quiz Section -->
+        <section class="mb-5" id="exercises">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <i class="fas fa-question-circle me-2"></i> Teste Seu Conhecimento
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h4>Quiz Rápido</h4>
+                            <div id="quiz-container" class="mb-4">
+                                <div id="quiz-progress" class="progress mb-3">
+                                    <div class="progress-bar" role="progressbar" style="width: 0%"></div>
+                                </div>
+                                <div id="quiz-question" class="mb-3">
+                                    <h5>Carregando perguntas...</h5>
+                                </div>
+                                <div id="quiz-options" class="list-group mb-3"></div>
+                                <button id="quiz-next" class="btn btn-primary disabled">
+                                    Próxima <i class="fas fa-arrow-right ms-1"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <h4>Desafios de Código</h4>
+                            <div class="list-group">
+                                <a href="exercises/js-calculator.html" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                                    Calculadora Simples
+                                    <span class="badge bg-primary rounded-pill">JavaScript</span>
+                                </a>
+                                <a href="exercises/python-email-validator.html" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                                    Validador de E-mail
+                                    <span class="badge bg-success rounded-pill">Python</span>
+                                </a>
+                                <a href="exercises/cpp-tic-tac-toe.html" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                                    Jogo da Velha
+                                    <span class="badge bg-info rounded-pill">C++</span>
+                                </a>
+                                <a href="exercises/js-todo-list.html" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                                    To-Do List
+                                    <span class="badge bg-primary rounded-pill">JavaScript</span>
+                                </a>
+                                <a href="exercises/cpp-scientific-calculator.html" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                                    Calculadora Científica
+                                    <span class="badge bg-info rounded-pill">C++</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Resources Section -->
+        <section class="mb-5" id="resources">
+            <div class="card">
+                <div class="card-header bg-dark text-white">
+                    <i class="fas fa-book me-2"></i> Recursos Adicionais
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-4 mb-4">
+                            <div class="card h-100">
+                                <div class="card-header bg-warning text-dark">
+                                    <i class="fab fa-js me-2"></i> JavaScript
+                                </div>
+                                <div class="card-body">
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item">
+                                            <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
+                                                MDN Web Docs
+                                            </a>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <a href="https://javascript.info/" target="_blank">
+                                                The Modern JavaScript Tutorial
+                                            </a>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <a href="https://eloquentjavascript.net/" target="_blank">
+                                                Eloquent JavaScript
+                                            </a>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <a href="https://github.com/getify/You-Dont-Know-JS" target="_blank">
+                                                You Don't Know JS
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="card h-100">
+                                <div class="card-header bg-success text-white">
+                                    <i class="fab fa-python me-2"></i> Python
+                                </div>
+                                <div class="card-body">
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item">
+                                            <a href="https://docs.python.org/3/tutorial/" target="_blank">
+                                                Python Official Docs
+                                            </a>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <a href="https://realpython.com/" target="_blank">
+                                                Real Python
+                                            </a>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <a href="https://automatetheboringstuff.com/" target="_blank">
+                                                Automate the Boring Stuff
+                                            </a>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <a href="https://www.learnpython.org/" target="_blank">
+                                                Learn Python
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="card h-100">
+                                <div class="card-header bg-info text-white">
+                                    <i class="fas fa-plus-circle me-2"></i> C++
+                                </div>
+                                <div class="card-body">
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item">
+                                            <a href="https://www.cplusplus.com/doc/tutorial/" target="_blank">
+                                                C++ Reference
+                                            </a>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <a href="https://www.learncpp.com/" target="_blank">
+                                                Learn C++
+                                            </a>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <a href="https://isocpp.org/" target="_blank">
+                                                ISO C++ Foundation
+                                            </a>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <a href="https://www.fluentcpp.com/" target="_blank">
+                                                Fluent C++
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter Section -->
+        <section class="mb-5">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <i class="fas fa-envelope me-2"></i> Assine Nossa Newsletter
+                </div>
+                <div class="card-body">
+                    <div class="row align-items-center">
+                        <div class="col-md-6 mb-3 mb-md-0">
+                            <h5 class="mb-0">Receba atualizações e conteúdos exclusivos!</h5>
+                        </div>
+                        <div class="col-md-6">
+                            <form id="newsletter-form" class="row g-2">
+                                <div class="col-8">
+                                    <input type="email" class="form-control" placeholder="Seu melhor e-mail" required>
+                                </div>
+                                <div class="col-4">
+                                    <button type="submit" class="btn btn-dark w-100">
+                                        Assinar <i class="fas fa-paper-plane ms-1"></i>
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <h5><i class="fas fa-code me-2"></i> DevGuide</h5>
+                    <p class="text-muted">O guia definitivo para aprender programação de forma interativa e moderna.</p>
+                    <div class="social-icons">
+                        <a href="#" class="text-white me-2"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white me-2"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white me-2"><i class="fab fa-github"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-2 mb-4 mb-md-0">
+                    <h5>Linguagens</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="javascript.html" class="text-muted">JavaScript</a></li>
+                        <li><a href="python.html" class="text-muted">Python</a></li>
+                        <li><a href="cpp.html" class="text-muted">C++</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2 mb-4 mb-md-0">
+                    <h5>Recursos</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="tutorials.html" class="text-muted">Tutoriais</a></li>
+                        <li><a href="exercises.html" class="text-muted">Exercícios</a></li>
+                        <li><a href="resources.html" class="text-muted">Referências</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>Contato</h5>
+                    <ul class="list-unstyled text-muted">
+                        <li><i class="fas fa-envelope me-2"></i> nilsonjosesilvagomes@hotmail.com</li>
+                        <li><i class="fas fa-phone me-2"></i> (11) 1234-5678</li>
+                        <li><i class="fas fa-map-marker-alt me-2"></i> Bahia, Brasil</li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="my-4 bg-secondary">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0 text-muted">&copy; 2025 DevGuide. Todos os direitos reservados Nilson Gomes.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <a href="#" class="text-muted me-3">Termos de Uso</a>
+                    <a href="#" class="text-muted">Política de Privacidade</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Prism JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-python.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-cpp.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/line-numbers/prism-line-numbers.min.js"></script>
+    
+    <!-- Ace Editor -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.15.3/ace.js"></script>
+    
+    <!-- Custom JS -->
+    <script src="js/main.js"></script>
+    <script src="js/quiz.js"></script>
+    <script src="js/code-editor.js"></script>
+</body>
+</html>

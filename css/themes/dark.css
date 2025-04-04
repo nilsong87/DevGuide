@@ -1,0 +1,60 @@
+/* Dark Theme */
+body {
+    background-color: #1a1a1a;
+    color: #e0e0e0;
+}
+
+.card {
+    background-color: #2d2d2d;
+    color: #e0e0e0;
+    border: 1px solid #444;
+}
+
+.card-header {
+    background-color: #252525;
+    border-bottom: 1px solid #444;
+}
+
+.list-group-item {
+    background-color: #2d2d2d;
+    color: #e0e0e0;
+    border: 1px solid #444;
+}
+
+.list-group-item:hover, .list-group-item:focus {
+    background-color: #3a3a3a;
+}
+
+.nav-tabs .nav-link {
+    color: #aaa;
+}
+
+.nav-tabs .nav-link.active {
+    background-color: #2d2d2d;
+    color: #fff;
+    border-color: #444 #444 #2d2d2d;
+}
+
+.alert {
+    background-color: #333;
+    color: #e0e0e0;
+    border-left-color: #4a6baf;
+}
+
+pre[class*="language-"] {
+    background: #1e1e1e !important;
+}
+
+#code-editor {
+    background-color: #1e1e1e;
+    color: #d4d4d4;
+}
+
+.output-container {
+    background-color: #1e1e1e !important;
+    color: #d4d4d4;
+}
+
+.text-muted {
+    color: #8a8a8a !important;
+}
