@@ -31,6 +31,7 @@ body {
 .card-header {
     background-color: rgba(0, 0, 0, 0.03);
     border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+    color: var(--dark-color);
 }
 
 /* List Groups */
@@ -47,11 +48,13 @@ body {
 .list-group-item.active {
     background-color: var(--primary-color);
     border-color: var(--primary-color);
+    color: white;
 }
 
 /* Tabs */
 .nav-tabs .nav-link {
     color: #495057;
+    background-color: #f8f9fa;
 }
 
 .nav-tabs .nav-link.active {
@@ -187,26 +190,13 @@ footer a:hover {
     color: white;
 }
 
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-    .hero-section {
-        padding: 2rem 0;
-    }
-    
-    .hero-section h1 {
-        font-size: 2rem;
-    }
-    
-    .hero-section .btn {
-        display: block;
-        width: 100%;
-        margin-bottom: 0.5rem;
-    }
-}
+/* Framework specific light theme adjustments */
+.bg-react-light { background-color: #e6f7ff; }
+.bg-angular-light { background-color: #fce8ec; }
+.bg-vue-light { background-color: #e8f5e9; }
 
-/* Additional Light Theme Specific Styles */
 .theme-icon {
-    color: #ffc107; /* Yellow color for theme toggle icon */
+    color: #ffc107;
 }
 
 .code-editor-header {
@@ -224,4 +214,21 @@ footer a:hover {
 .newsletter-card {
     background-color: #ffffff;
     border: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .hero-section {
+        padding: 2rem 0;
+    }
+    
+    .hero-section h1 {
+        font-size: 2rem;
+    }
+    
+    .hero-section .btn {
+        display: block;
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
 }

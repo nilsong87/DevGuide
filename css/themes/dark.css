@@ -13,6 +13,7 @@ body {
 .card-header {
     background-color: #252525;
     border-bottom: 1px solid #444;
+    color: #f8f9fa;
 }
 
 .list-group-item {
@@ -21,12 +22,15 @@ body {
     border: 1px solid #444;
 }
 
-.list-group-item:hover, .list-group-item:focus {
+.list-group-item:hover, 
+.list-group-item:focus {
     background-color: #3a3a3a;
 }
 
 .nav-tabs .nav-link {
     color: #aaa;
+    background-color: #252525;
+    border-color: #444;
 }
 
 .nav-tabs .nav-link.active {
@@ -43,18 +47,57 @@ body {
 
 pre[class*="language-"] {
     background: #1e1e1e !important;
+    border: 1px solid #444 !important;
 }
 
 #code-editor {
     background-color: #1e1e1e;
     color: #d4d4d4;
+    border: 1px solid #444;
 }
 
 .output-container {
     background-color: #1e1e1e !important;
     color: #d4d4d4;
+    border: 1px solid #444;
 }
 
 .text-muted {
     color: #8a8a8a !important;
 }
+
+.navbar {
+    background-color: #212529 !important;
+    border-bottom: 1px solid #444;
+}
+
+.nav-link.active {
+    color: #fff !important;
+}
+
+.form-control {
+    background-color: #2d2d2d;
+    color: #e0e0e0;
+    border: 1px solid #444;
+}
+
+.form-control:focus {
+    background-color: #2d2d2d;
+    color: #fff;
+    border-color: #555;
+}
+
+.btn-outline-secondary {
+    color: #aaa;
+    border-color: #666;
+}
+
+.btn-outline-secondary:hover {
+    background-color: #666;
+    color: #fff;
+}
+
+/* Framework specific dark mode adjustments */
+.bg-react-light { background-color: #1a3a4e !important; }
+.bg-angular-light { background-color: #3a0d1f !important; }
+.bg-vue-light { background-color: #1e3b2e !important; }
